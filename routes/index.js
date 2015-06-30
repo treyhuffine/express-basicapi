@@ -15,7 +15,7 @@ router.get('/quotes', function(req, res) {
 });
 router.post('/quotes', function(req, res) {
   jsonData.quotes.push(req.body.quote);
-  fs.writeFile("../jsonData.json", JSON.stringify(jsonData), function(err){
+  fs.writeFile("jsonData.json", JSON.stringify(jsonData), function(err){
     if (err) {
       console.log(err);
       res.status(500).send("We could not save the quote, please try again later");
