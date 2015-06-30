@@ -6,14 +6,19 @@ a {
   color: #00B7FF;
 }
 .quote-list {
-  list-style: none;
   padding: 0;
+  margin-top: 15px;
 }
-.quotes {
-  list-style: none;
-  margin-bottom: 20px;
+.quote {
+  margin-bottom: 10px;
   padding: 0;
 }
 .footer {
   margin-top: 100px;
+}
+.enlightened {
+  font-weight: bold;
+}
+.quote-btn {
+  margin-top: 5px;
 }

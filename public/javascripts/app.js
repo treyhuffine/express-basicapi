@@ -12,11 +12,10 @@ quotesApp.controller("QuotesCtrl", function($scope, $http) {
       console.log("error");
   });
   $scope.submitQuote = function() {
-    console.log("submitting");
     $http.post("/quotes", { quote: $scope.newQuote })
       .success(function(data, status, headers, config) {
-        console.log(data);
         $scope.quotes.push(data.quote);
+        $scope.newQuote = "";
       })
       .error(function(data, status, headers, config) {
         console.log("Error");

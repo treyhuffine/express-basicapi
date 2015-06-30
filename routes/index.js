@@ -16,7 +16,6 @@ router.get('/quotes', function(req, res) {
 });
 router.post('/quotes', function(req, res) {
   var newQuote = req.body.quote;
-  console.log(newQuote);
   if (!newQuote || jsonData.quotes.indexOf(newQuote) > -1) {
     res.status(400).send("We need a text for that quote, son");
     return;
