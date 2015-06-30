@@ -10,5 +10,16 @@ quotesApp.controller("QuotesCtrl", function($scope, $http) {
     })
     .error(function(data, status, headers, config) {
       console.log("error");
-    });
+  });
+  $scope.submitQuote = function() {
+    console.log("submitting");
+    $http.post("/quotes", { quote: $scope.newQuote })
+      .success(function(data, status, headers, config) {
+        console.log(data);
+        $scope.quotes.push(data.quote);
+      })
+      .error(function(data, status, headers, config) {
+        console.log("Error");
+      });
+  };
 });
