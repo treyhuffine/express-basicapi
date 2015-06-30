@@ -1,5 +1,6 @@
 extend layout
 
 block content
-  h1
-    | Index
+  div#quotes(ng-controller="QuotesCtrl")
+    ul.quote-list
+      li.quote(ng-repeat="quote in quotes") {{quote}}
