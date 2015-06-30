@@ -1,7 +1,15 @@
 extend layout
 
 block content
-  | Be enlightened
+  form.quote-form(method="post", action="/quotes")
+    | Submit a quote
+    br
+    input.form-control(type="text", placeholder="Input quote...", name="quote")
+    button.btn.btn-primary(type="submit") Add quote
+  br
+  | Be enlightened:
   ul.quote-list
-  - for (var  i = 0; i < quotes.length; i++)
-    li.quotes #{quotes[i]}
+  - each quote in quotes
+    li.quotes= quote
+  //- - for (var  i = 0; i < quotes.length; i++)
+  //-   li.quotes #{quotes[i]}

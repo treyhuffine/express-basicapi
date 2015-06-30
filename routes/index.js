@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var jsonData = require('../jsonData.json');
 
 /* GET home page. */
@@ -11,6 +12,16 @@ router.get('/about', function(req, res, next) {
 });
 router.get('/quotes', function(req, res) {
   res.render('quotes', { quotes: jsonData.quotes });
+});
+router.post('/quotes', function(req, res) {
+  jsonData.quotes.push(req.body.quote);
+  fs.writeFile("../jsonData.json", JSON.stringify(jsonData), function(err){
+    if (err) {
+      console.log(err);
+      res.status(500).send("We could not save the quote, please try again later");
+    }
+    res.redirect("/quotes");
+  });
 });
 router.get('/data/:id', function(req, res) {
   res.send(jsonData.quotes[req.params.id-1]);
