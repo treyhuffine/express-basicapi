@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'Express', repeat: 7, timestamp: new Date() });
 });
+router.get('/quotes', function(req, res) {
+  res.render('quotes', { quotes: jsonData.quotes });
+});
 router.get('/data/:id', function(req, res) {
   res.send(jsonData.quotes[req.params.id-1]);
 });
