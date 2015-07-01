@@ -22,3 +22,14 @@ a {
 .quote-btn {
   margin-top: 5px;
 }
+.error {
+  color: red;
+}
+.delete {
+  color: rgb(242, 180, 180);
+  margin-left: 10px;
+  cursor: pointer;
+}
+.inline-block {
+  display: inline-block;
+}

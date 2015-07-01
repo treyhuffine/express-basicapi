@@ -9,6 +9,11 @@ block content
       input.form-control(type="text", placeholder="Input quote...",
             ng-model="newQuote", name="quote")
       button.quote-btn.btn.btn-primary(type="submit") Add quote
+    .error {{formError}}
     ul.quote-list
       p.enlightened Be enlightened:
-      li.quote(ng-repeat="quote in quotes | filter: '' track by $index") {{quote}}
+      li.quote(ng-repeat="quote in quotes | filter: '' track by $index")
+        span.quote-text.inline-block
+          {{quote}}
+        span.inline-block
+          p.delete.fa.fa-trash-o(ng-click="deleteQuote($index)")
